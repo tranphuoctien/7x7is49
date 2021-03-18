@@ -6,6 +6,8 @@ services:
     hostname: gateway
     env_file:
       - .env
+    #volumes:
+      #- "./gateway:/var/www/app"
     ports:
       - "1321:1321"
     networks:
@@ -17,6 +19,8 @@ services:
     hostname: token
     env_file:
       - .env
+    #volumes:
+      #- "./token:/var/www/app"
     networks:
       - backend
     links:
@@ -27,6 +31,8 @@ services:
     hostname: user
     env_file:
       - .env
+    #volumes:
+    #  - "./user:/var/www/app"
     networks:
       - backend
     links:
@@ -38,6 +44,8 @@ services:
       - "./db/data/db-files:/data/db"
     networks:
       - backend
+    ports:
+    - "27017:27017"
 networks:
   backend:
     driver: bridge
