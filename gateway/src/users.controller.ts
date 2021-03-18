@@ -132,6 +132,7 @@ export class UsersController {
 
   @Put('/logout')
   @Authorization(true)
+  @ApiBearerAuth()
   @ApiCreatedResponse({
     type: LogoutUserResponseDto,
   })
