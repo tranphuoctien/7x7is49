@@ -1,0 +1,45 @@
+version: '3'
+services:
+  gateway:
+    build: ./gateway
+    restart: always
+    hostname: gateway
+    env_file:
+      - .env
+    ports:
+      - "1321:1321"
+    networks:
+      - backend
+      - frontend
+  token:
+    build: ./token
+    restart: always
+    hostname: token
+    env_file:
+      - .env
+    networks:
+      - backend
+    links:
+      - db
+  user:
+    build: ./user
+    restart: always
+    hostname: user
+    env_file:
+      - .env
+    networks:
+      - backend
+    links:
+      - db
+  db:
+    image: 'mongo'
+    restart: always
+    volumes:
+      - "./db/data/db-files:/data/db"
+    networks:
+      - backend
+networks:
+  backend:
+    driver: bridge
+  frontend:
+    driver: bridge
