@@ -3,3 +3,8 @@
 - User service
 - Token service
 - API Gateway
+
+## Start 
+```
+docker-compose up  --build
+```
