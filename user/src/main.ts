@@ -16,6 +16,6 @@ async function bootstrap() {
   });
 
   await app.startAllMicroservicesAsync();
-  // await app.listen((new ConfigService()).get('httpPort'));
+  await app.listen((new ConfigService()).get('httpPort'));
 }
 bootstrap();
