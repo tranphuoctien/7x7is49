@@ -8,3 +8,7 @@
 ```
 docker-compose up  --build
 ```
+
+### Build with
+- Mongodb
+- Nestjs
