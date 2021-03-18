@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
 
   public async canActivate(context: ExecutionContext): Promise<boolean> {
     const secured = this.reflector.get<string[]>(
-      'secured',
+      'FlowareAuth',
       context.getHandler(),
     );
 
